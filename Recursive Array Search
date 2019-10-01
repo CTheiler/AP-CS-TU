@@ -1,0 +1,36 @@
+import java.util.*;
+public class RecursiveIntSearch {
+	public int findInt(int [] x, int target,int pos)
+	{
+		if(pos==0)
+		{
+			System.out.println("The number is not in the array");
+			return 0;
+		}
+		else if(x[pos-1] == target)
+		{
+			System.out.println("The number is in the array");
+			return 1;
+		}
+		else
+		{
+    //Re-runs the function
+			return findInt(x, target, pos-1);
+		}
+			
+	}
+	public static void main(String[] args)
+	{
+  //Creates an array
+		int [] a = {1,2,4,5,6,7,8,9};
+    
+    //Creates new Scanner s
+		Scanner s = new Scanner(System.in);
+    
+		System.out.println("Number searching for");
+		int z = s.nextInt();
+		Int size= a.length;
+		RecursiveIntSearch r = new RecursiveIntSearch();
+		r.findInt(a, z, size);
+	}
+}
