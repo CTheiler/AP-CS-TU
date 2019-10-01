@@ -1,0 +1,50 @@
+import java.util.*;
+import java.util.ArrayList;
+public class ArrList1 {
+	public static void main(String[] args){
+		Scanner s = new Scanner(System.in);
+		System.out.println("Please enter a benchmark");
+		double x = s.nextDouble();
+		ArrayList<Double> bench =  new ArrayList<Double>();
+		ArrayList<Double> rem =  new ArrayList<Double>();
+		int lp = 0;
+		int sp = 0;
+		double lv = 0;
+		double sv = 0;
+		while (s.hasNextDouble())
+		{
+			System.out.println("Please enter a value");
+			bench.add(s.nextDouble());
+			for (int i = 0; i<bench.size(); i++)
+			{
+				if (bench.get(i) < bench.get(sp))
+				{
+					sp = i;
+					sv = bench.get(i);
+				}
+				if (bench.get(i) > bench.get(lp))
+				{
+					lp = i;
+					lv = bench.get(i);
+				}
+				
+			}
+		}
+		
+		System.out.println("The smallest value is: " + sv);
+		System.out.println("The largest value is: " + lv);
+		
+		for(int y = 0; y<bench.size() - 1; y++)
+		{
+			if (bench.get(y) < x)
+			{
+				bench.remove(y);
+			}
+			if (bench.get(y) >= x)
+			{
+				rem.add(bench.get(y));
+			}
+		}	
+		System.out.println("The remaining values are: " + rem);		
+	}
+}
