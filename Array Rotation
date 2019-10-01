@@ -1,0 +1,32 @@
+import java.util.*;
+public class Shift {
+	public static void main(String[] args){
+				Scanner s = new Scanner(System.in);
+				
+				System.out.println("Please enter the amount of rotations you would like to complete");
+				double n = s.nextInt();
+				
+				ArrayList<Double> swap = new ArrayList<Double>();
+				
+				System.out.println("Please enter a value");
+				
+				while (s.hasNextDouble())
+				{
+					System.out.println("Please enter a value");
+					swap.add(s.nextDouble());
+				}
+				
+				for (int b = 0; b < n; b++)
+				{
+					double temp = swap.get(0);
+					for (int c = 0; c < swap.size()-1; c++ )
+					{
+						swap.set(c, swap.get(c+1));
+					}
+					
+					swap.set(swap.size()-1, temp);
+
+				}
+				System.out.println(swap);
+	}
+}
