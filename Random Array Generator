@@ -1,0 +1,100 @@
+import java.util.*;
+public class RandomArray {
+	
+	//Creates the integer array = to 10, the boolean variables full and repeat and the integer x
+	private int [] digits = new int[10];
+	private boolean full;
+	private boolean repeat;
+	private int x = 0;
+	
+	//Creates the object for Random a Random array
+	public RandomArray(int [] a)
+	{
+		//Sets all values in the array to -1
+		for (int x = 0; x < digits.length; x++)
+		{
+			a[x] = -1;
+		}
+		//Makes the digits array initialized above equal to the array put into the object
+		digits = a;
+	}
+	
+	//Creates the method insertRandomNumber
+	public void insertRandomNumber(int m)
+	{
+		//Sets a position in Digits = to the randomly generated number
+		digits[x] = m;
+		
+		//Increments the position
+		x++;
+	}
+	
+	//Creates the method checkFull
+	public boolean checkFull()
+	{
+		//Creates a loop to test all positions in the digits array
+		for (int x = 0; x<digits.length; x++)
+		{
+			//Resets the boolean full at the beginning of each loop
+			full = true;
+			//Since it is impossible to get a random value of -1, if a value in digits still equals -1 then it has not been randomized, meaning that the digits array is not full
+			if(digits[x] == -1)
+			{
+				//Sets full to false
+				full = false;
+				//Breaks the loop
+				break;
+			}
+		}
+		//Returns the boolean full, whether it was true or false
+		return full;
+	}
+	//Creates the Method checkArray
+	public boolean checkArray(int n)
+	{
+		//Creates a loop to test all positions in the array
+		for (int x = 0; x < digits.length; x++)
+		{
+			//Resets the boolean repeat to false for each loop
+			repeat = false;
+			//If the randomly generated value has already been inputed to the array
+			if (digits[x] == n)
+			{
+				//Sets the boolean repeat to true
+				repeat = true;
+				//Breaks the code
+				break;
+			}
+		}
+		//Returns the boolean repeat
+		return repeat;
+	}
+	//Creates the main argument method
+	public static void main(String[] args)
+	{
+		//Creates the array random
+		int[] random = new int [10];
+		//Initializes the integer a
+		int a;
+		
+		//Creates the RandomArray findRand using the array random
+		RandomArray findRand = new RandomArray(random);
+		//Creates a new random number generator
+		Random n = new Random();
+		
+		//While the method checkFull results in false
+		while (!findRand.checkFull())
+		{
+			//Sets the integer a to the randomly generated number between 0 and 9
+			a = n.nextInt(10);
+			//If the method checkArray, using the randomly generated number, results in false
+			if (!findRand.checkArray(a))
+			{
+				//Inserts the Randomly generated integer into the random array that was created as a RandomArray
+				findRand.insertRandomNumber(a);
+			}
+		}
+		//Prints out the Randomly Generated Array
+		System.out.println(Arrays.toString(random));
+	}
+}
