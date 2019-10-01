@@ -1,0 +1,21 @@
+import java.util.*;
+public class RecursiveTower {
+	public int rectow(int n){
+		if (n==1)
+		{
+			return 1;
+		}
+		else
+		{
+			return 1+(2*rectow(n-1));
+		}
+	}
+	public static void main (String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		System.out.println("Starting Number");
+		int a = s.nextInt();
+		RecursiveTower r = new RecursiveTower();
+		System.out.println("The total amount of moves is " + r.rectow(a));
+	}
+}
