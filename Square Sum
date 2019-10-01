@@ -1,0 +1,22 @@
+import java.util.*;
+public class SqSum {
+	public static void main(String[] args){
+		
+		Scanner s = new Scanner(System.in);
+		System.out.println("Please enter the first value of the range:");
+		int i = s.nextInt();
+		System.out.println("Please enter the second value of the range:");
+		int j = s.nextInt();
+		
+		int square;
+		int sum = 0;
+		
+		while(i<=j)
+		{
+			square = i*i;
+			sum += square;
+			i++;
+		}
+		System.out.println("The sum of all squares between 1 and 100 is: " + sum);
+	}
+}
