@@ -1,0 +1,41 @@
+import java.util.*;
+public class Switch {
+	public static void main(String[] args)
+	{
+		//Creates a new scanner s
+		Scanner s = new Scanner(System.in);
+		
+		//Prompts the user to input the length of the array
+		System.out.println("Please enter the amount of numbers in the array: ");
+		
+		//Sets the integer al = to the entered value
+		int al = s.nextInt();
+		
+		//Sets the length of the array swap to the length entered
+		int[] swap = new int[al];
+		
+		//Prompts the user to input their array values
+		System.out.println("Please enter the values in the array: ");
+		
+		//Creates a for loop to set the entered values to their correct positions
+		for (int a = 0; a < al; a++)
+		{
+			swap[a] = s.nextInt();
+		}
+		
+		//Creates a for loop that cycles until it reaches the array length
+		for (int b = 0; b < al; b++)
+		{
+			//If the number entered in b's position is not even
+			if(swap[b] % 2 != 0)
+			{
+				//Add one to the number in position b
+				swap[b] = swap[b] + 1;
+			}
+
+			//Print out the value in the swap array at position b
+			System.out.print(swap[b] + " ");
+
+		}
+	}
+}
