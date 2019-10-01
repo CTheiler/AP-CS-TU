@@ -1,0 +1,53 @@
+import java.util.*;
+public class MaSTLab {
+	public static void main(String[] args){
+		
+		//Tells the user that they can exit by entering q
+		System.out.println("You can enter q at any time when you are done entering data points");
+		
+		//Creates a new scanner
+		Scanner s = new Scanner(System.in);
+		
+		//Prompts the user to enter their first value
+		System.out.println("Please enter the first data value");
+		
+		//Sets x1 to the first entered point
+		double x1 = s.nextDouble();
+		double x3 = 0;
+		double x4 = Math.pow(x1, 2);
+		
+		//Sets strings q and exit
+		String q = "";
+		String exit = "q";
+		
+		//Sets n = 1;
+		int n = 1;
+		
+		//While q does not = exit
+		while (!q.equals(exit))
+		{
+			//Prompts the user to enter their next point
+			System.out.println("Please enter your next data point");
+			//Sets x2 = to the next entered point
+			double x2 = s.nextDouble();
+			//Adds the last entered interval to the x1
+			x1 += x2;
+			x4 += Math.pow(x2, 2);
+			//Adds one to the counter
+			n++;
+			//If the user enters q
+			if (s.hasNext(exit))
+			{
+				//Sets q = q
+				q = "q";
+			}
+		}
+		//Sets the mean to sum / the counter
+		double m = x1 / n;
+		//Sets standard deviation
+		double sd = (n*x4 - Math.pow(x1, 2));
+		double sd1 = Math.sqrt(sd / (n*(n-1)));
+		double sdnt = Math.sqrt(Math.abs(Math.pow(x1, 2) - Math.pow(m, 2)) / n*(n-1));
+		//Prints the mean and standard deviation
+		System.out.printf("The mean of your data points is: %.2f" , m);
+		System.out.printf("\nThe standard deviation of your data points is: %.2f" , sd1);
