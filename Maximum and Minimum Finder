@@ -1,0 +1,49 @@
+import java.util.*;
+public class Lab1 {
+	public static void main(String[] args){
+		
+		//Informs the user that they can exit by entering q
+		System.out.println("You may exit the program at any time by inputting q");
+		
+		//Creates a new scanner
+		Scanner s = new Scanner(System.in);
+		
+		//Prompts the user to input their first variable
+		System.out.println("Please enter the first variable: ");
+		
+		//Sets x = to the number entered, and creates the doubles small and large = to x
+		double x = s.nextDouble();
+		double small = x;
+		double large = x;
+		
+		//Creates strings q and exit
+		String q = "";
+		String exit = "q";
+		
+		//Creates a loop for as long as String q does not equal String exit
+		while (!q.equals(exit))
+		{
+			//Prompts the user to input their next number
+			System.out.println("Please enter the next number: ");
+			
+			//Sets x = to the inputted number
+			x = s.nextDouble();
+			
+			//Sets large to the maximum value between large and x
+			large = Math.max(large, x);
+			
+			//Sets small to the minimum value between small and x
+			small = Math.min(small, x);
+			
+			//Creates an if statement to determine whether or not the user inputted q
+			if (s.hasNext(exit))
+			{
+				//Sets q = to String exit to break the loop
+				q = exit;
+			}
+		}
+		//Prints the Smallest and Largest numbers
+		System.out.println("The smallest number is: " + small);
+		System.out.println("The largest number is: " + large);	
+	}
+}
