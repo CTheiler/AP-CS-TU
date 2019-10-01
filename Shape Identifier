@@ -1,0 +1,267 @@
+import java.util.*;
+public class Quadrilateral {
+	public String name;
+	private int sides;
+	public int[] sideLength = new int[4];
+	public int[] angleMeasure = new int [4];
+	Quadrilateral()
+	{
+		name = "Not applied yet";
+		sides = 4;
+		for(int x = 1; x<=sides; x++)
+			sideLength[x] = 0;
+		for(int x = 1; x<=sides; x++)
+			angleMeasure[x] = 0;
+
+	}
+	public String getName() 
+	{
+		return name;
+	}
+	public void setName(String name) 
+	{
+		this.name = name;
+	}
+	public int[] getSideLength() 
+	{
+		return sideLength;
+	}
+	public int getAngleMeasure() 
+	{
+		for(int x = 1; x<=4; x++)
+		{
+			return angleMeasure[x];
+		}
+		return -1;
+	}
+	public void display()
+	{
+		System.out.println("Shape: " + name);
+		System.out.println("Sides: " + sides);
+		for (int x = 1; x<=4; x++)
+			System.out.println("Sidelength " + x + "is: " + sideLength[x]);
+		for(int x = 1; x <= 4; x++)
+			System.out.println("Angle " + x + " is: " + angleMeasure[x]);
+	   }  
+	public void setAngleMeasure(int i, int j, int k, int l) 
+	{
+		for(int x = 0; x<4; x++)
+		{
+			if (x==1)
+				angleMeasure[x] = i;
+			if (x==2)
+				angleMeasure[x] = j;
+			if(x==3)
+				angleMeasure[x] = k;
+			if(x==4)
+				angleMeasure[x] = l;
+		}
+	}
+	public void setsideLength(int[] sideLength,int i, int j, int k, int l) 
+	{
+		for(int x = 0; x<4; x++)
+		{
+			if (x==1)
+				sideLength[x] = i;
+			if (x==2)
+				sideLength[x] = j;
+			if(x==3)
+				sideLength[x] = k;
+			if(x==4)
+				sideLength[x] = l;
+		}
+	}
+	
+	public boolean isShape(int[] i, int[]j, boolean shape) 
+	{
+		int angle = 0;
+		int totalAngleMeasure = 0;
+		for (int k = 0; k < 4; k++)
+		{
+			angleMeasure[k] = angle;
+			totalAngleMeasure += angle;
+		}
+		if (sides > 2 || totalAngleMeasure <= 360) 
+			return shape = true;
+		else
+			return shape = false;
+	}
+}
+
+import java.util.*;
+public class Parallelogram extends Quadrilateral {
+   int i;
+   int j;
+   int k;
+   int l;
+   int w;
+   int x;
+   int y;
+   int z;
+
+   public void setAngleMeasure(int i, int j, int k, int l) 
+   {
+      super.setAngleMeasure(i, j, k, l);
+   }
+   
+   public void setSideLength(int w, int x, int y, int z)
+   {
+	   super.setsideLength(w,x,y,z);
+   }
+   
+   public boolean isShape() 
+   { 
+	   	   boolean check = false;
+		   if (angleMeasure[0] == angleMeasure[2] && angleMeasure[1] == angleMeasure[3] && sideLength[0] == sideLength[2] || sideLength[1] == sideLength[3]) 
+			   check = true;         
+	       return check;
+   }
+   public void setName()
+   {
+	   if(isShape())
+		   super.setName("Rhombus");;
+   }
+   
+   public void display() 
+   {
+      super.display();
+   }
+
+}
+
+import java.util.*;
+public class Rectangle extends Parallelogram {	
+	int i;
+	int j;
+	int k; 
+	int l;
+	int w;
+	int x;
+	int y;
+	int z;
+	
+   
+    public void setAngleMeasurement(int i, int j, int k, int l) 
+    {
+	    super.setAngleMeasure(i, j, k, l);		      
+    }
+    
+    public void setSideLength(int w, int x, int y, int z) 
+    {
+	    super.setSideLength(w, x, y, z);		      
+    }
+   
+    public boolean isShape() 
+    {	
+    	boolean check = false;
+        if(angleMeasure[0] == 90 && angleMeasure[1] == 90 && angleMeasure[2] == 90 && angleMeasure[3] == 90 && (sideLength[0] == sideLength[2] && sideLength[1] == sideLength[3]))
+           check = true;
+        else  
+    	   check = false; 	      
+        return check;		      
+    }
+    
+	public void setName()
+    {		   
+		if(isShape())
+		{
+		    super.setName("Rectangle");	
+		}   
+    }
+   
+   public void display() 
+   {		      
+      super.display();		      
+   }
+}
+
+import java.util.*;
+public class Square extends Rectangle {
+	int i;
+	int j;
+	int k;
+	int l;
+	int w;
+	int x;
+	int y;
+	int z;
+	
+	public void setAngleMeasurement(int i, int j, int k, int l)
+	{
+		super.setAngleMeasurement(i,j,k,l);
+	}
+	
+	public void setSideLength(int w, int x, int y, int z)
+	{
+		super.setSideLength(w,x,y,z);
+	}
+	
+    public boolean isShape() 
+    {	
+    	boolean check = false;
+        if(angleMeasure[0] == 90 && angleMeasure[1] == 90 && angleMeasure[2] == 90 && angleMeasure[3] == 90 && (sideLength[0] == sideLength[2] && sideLength[0] == sideLength[1] && sideLength[0]==sideLength[3]))
+           check = true;
+        else  
+    	   check = false; 	      
+        return check;		      
+    }
+    
+	public void setName()
+    {		   
+		if(isShape())
+		{
+		    super.setName("Square");	
+		}   
+    }
+   
+   public void display() 
+   {		      
+      super.display();		      
+   }
+
+}
+
+import java.util.*;
+public class Rhombus extends Parallelogram{
+	int i;
+	int j;
+	int k;
+	int l;
+	int w;
+	int x;
+	int y;
+	int z;
+	
+	public void setAngleMeasurement(int i, int j, int k, int l)
+	{
+		super.setAngleMeasure(i,j,k,l);
+	}
+	
+	public void setSideLength(int w, int x, int y, int z)
+	{
+		super.setSideLength(w,x,y,z);
+	}
+	
+    public boolean isShape() 
+    {	
+    	boolean check = false;
+        if((angleMeasure[0] == angleMeasure[2] && angleMeasure[1] == angleMeasure[3] && (sideLength[0] == sideLength[2] && sideLength[0] == sideLength[1] && sideLength[0]==sideLength[3]))
+           check = true;
+        else  
+    	   check = false; 	      
+        return check;		      
+    }
+    
+	public void setName()
+    {		   
+		if(isShape())
+		{
+		    super.setName("Square");	
+		}   
+    }
+   
+   public void display() 
+   {		      
+      super.display();		      
+   }
+}
