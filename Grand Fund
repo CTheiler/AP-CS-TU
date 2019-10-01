@@ -1,0 +1,66 @@
+import java.util.*;
+public class GTlab {
+	public static void main(String[] args){
+		
+		//Creates a new Scanner
+		Scanner s = new Scanner(System.in);
+		
+		//Prompts the user to input a price
+		System.out.println("Please enter the price of the first product");
+		
+		//Sets the double p1 = to the entered value
+		double p1 = s.nextDouble();
+		
+		//Prompts the user to input a price
+		System.out.println("Please enter the price of the second product");
+		
+		//Sets the double p2 = to the entered value
+		double p2 = s.nextDouble();
+		
+		//Prompts the user to input a price
+		System.out.println("Please enter the price of the third product");
+		
+		//Sets the double p3 = to the entered value
+		double p3 = s.nextDouble();
+		
+		//Prompts the user to enter a grand fund
+		System.out.println("Please enter the total amount to spend");
+		
+		//Sets the double gt to the entered fund
+		double gt = s.nextDouble();
+		
+		//Prompts the user to enter the remainder
+		System.out.println("Please enter the remainder");
+		
+		//Sets the double rem to the entered value
+		double rem = s.nextDouble();
+		
+		//Sets the doubles i1 i2 and i3
+		double i1 = 0;
+		double i2 = 0;
+		double i3 = 0;
+		
+		//Creates a loop for the first item, counts up until i1*p1 is greater than the grand total
+		for (i1 = 1; i1*p1 <= gt; i1++)
+		{
+			//Creates a loop for the second item, counts up until i2*p2 is greater than the grand total
+			for (i2 = 1; i2*p2<=gt;i2++)
+			{
+				//Creates a loop for the third item, counts up until i3*p3 is greater than the grand total
+				for (i3 = 1; i3*p3<=gt; i3++)
+				{
+					//Finds the total price using the information through the loops
+					double pt = gt - ((i1 * p1) + (i2 * p2) + (i3*p3));
+					
+					//Creates an if statement to see if the qualifications for the remainder is correct
+					if(pt <= rem && pt >= 0)
+					{
+						//Prints the given info
+						System.out.printf(i1 + ", " + i2 + ", " + i3 + ", " + gt +  " , %.2f",pt);
+						System.out.println();
+					}
+				}
+			}
+		}
+	}
+}
