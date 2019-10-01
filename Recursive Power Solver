@@ -1,0 +1,28 @@
+import java.util.*;
+public class RecursivePower {
+	public int recpower(int base, int exp)
+	{
+		if(exp == 0)
+		{
+			return exp = 1;
+		}
+		else
+		{
+			return exp = recpower(base,exp - 1) * base;
+		}
+	}
+
+	public static void main(String[] args)
+{
+	//Creates new Scanner s
+		Scanner s = new Scanner(System.in);
+
+		System.out.println("Input base");
+		int a = s.nextInt();
+		System.out.println("Input exponent");
+		int b = s.nextInt();
+		
+		//Creates a new object in the class RecursivePower
+		RecursivePower r = new RecursivePower();
+		System.out.println("The Recursive Power is " + r.recpower(a, b));	
+	}
