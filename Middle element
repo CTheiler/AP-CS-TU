@@ -1,0 +1,18 @@
+public class MidEle {
+	public static void main(String[] args)
+	{
+        double a[] = {4, -4.78, 2.3, 9, 25, -2.1, 2.8 };
+        double b[] = {-5.4, 9, -43, .231, 10.12, 6.2,  142, 32};
+        
+        double am = a[(a.length - 1) / 2];
+        double bm = b[(b.length - 1) / 2];
+        
+        int arrays = 2;
+        double x[] = new double[arrays];
+        
+        x[0] = am;
+        x[1] = bm;
+        
+        System.out.println(x[0] + ", " + x[1]); 
+	}
+}
