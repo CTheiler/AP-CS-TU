@@ -1,0 +1,49 @@
+import java.util.*;
+public class SelectionSorter {     
+    public static void SelSort(int array[], int pos)
+    {
+        //If the position has passed the array length
+        if (pos >= array.length)
+        {
+        	//Return Nothing, but breaks the loop
+        	return;
+        }
+        
+        //Set the position of the minimum value to the position for the Selection Sort
+        int minpos = pos;
+        
+        //Creates a for loop comparing the array at x to the position of the minimum value
+        for ( int x = pos; x < array.length; x++ )
+        {
+        	//If the array at x is less than the array at the minimum's position
+            if (array[x] < array[minpos] )
+            {
+            	//Sets the new position for minimum to x
+                minpos = x;
+            }
+
+        }
+        //Sets a temporary value to the value at the beginning position
+        int temp = array[pos];
+        //Sets the value at the starting position of the array to the minimum value in the array found through the for loop
+        array[pos] = array[minpos];
+        //Swaps the array's starting position value with the position that the minimum value was at
+        array[minpos] = temp;
+        //Calls upon the function but increases the position 
+        SelSort(array, pos + 1);
+    }
+      
+    public static void main(String args[]) 
+    {
+        int numbers[] = {44, -1, 102, 0, -23, 14, -17};
+      
+        // Calling the Selection Sort Function
+        SelSort(numbers, 0);
+      
+        //Prints the now sorted array
+        for (int x = 0; x< numbers.length; x++)
+        {
+            System.out.print(numbers[x] + " ");
+        }
+    }
+}
