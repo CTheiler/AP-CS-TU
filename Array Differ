@@ -1,0 +1,66 @@
+import java.util.*;
+public class Matchup {
+	//Creates the function matchup
+	public static int matchup (int[ ] nums1, int[ ] nums2){
+		
+		//Creates the integer x = to the length of the string
+		int x = nums1.length-1;
+		
+		//Initialize the integer diff
+		int diff = 0;
+		
+		//Creates a for loop, with the conditions being less than or equal to the integer x (array length)
+		for (int a = 0; a<=x; a++)
+		{
+			//Creates an if statement, that activates if the difference between nums1 and nums2 is between -2 and 2, and not equal to 0
+			if((nums1[x-a]) - (nums2[x-a]) >=-2 && (nums1[x-a]) - nums2[x-a] <= 2 && (nums1[x-a] - nums2[x-a]) !=0)
+			{
+				//Adds one to diff
+				diff++;
+			}
+		}
+		//Returns Diff
+		return diff;
+	}
+	public static void main(String[] args)
+	{
+		//Creates a new scanner
+		Scanner s = new Scanner(System.in);
+		
+		//Prompts the user to input the length of their array
+		System.out.println("Please enter the length of your arrays:");
+		
+		//Sets the integer al to the entered length
+		int al = s.nextInt();
+		
+		//Creates two arrays that have a length = to the entered array length
+		int[] fa = new int[al];
+		int[] sa = new int[al];
+		
+		//Prompts the user to input their numbers for the first array
+		System.out.println("Please enter the numbers of the first array: ");
+		
+		//Creates a for loop for inputting the array values
+		for (int b = 0; b < al; b++)
+		{
+			//Sets the value in array fa at position b to the entered value
+			fa[b] = s.nextInt();
+		}
+		
+		//Prompts the user to input the numbers for their second array
+		System.out.println("Please enter the numbers of the second array: ");
+		
+		//Creates a for loop for inputting array values, less than the length of the array
+		for (int c = 0; c < al; c++)
+		{
+			//Sets the values in array sa at position c to the entered value
+			sa[c] = s.nextInt();
+		}
+		
+		//Sets int diff to the difference between all values entered in the arrays fa and sa
+		int diff = matchup(fa,sa);
+		
+		//Prints the amount of times the arrays differed
+		System.out.println("The amount of times it differed: " + diff);
+	}
+}
