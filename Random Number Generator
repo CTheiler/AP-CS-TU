@@ -1,0 +1,93 @@
+import java.util.Random;
+
+public class RandomNumber {
+	
+	//Creates a way to create Random numbers
+	private Random generator;
+	
+	//Creates the integer sides
+	private int sides;
+	
+	//Sets the Constructor
+	public RandomNumber(int s)
+	{
+		generator = new Random();
+		sides = s;
+	}
+	
+	//Creates the accessor roll
+	public int roll()
+	{
+		return 1 + generator.nextInt(sides);
+	}
+}
+
+
+import java.util.*;
+public class Simulation {
+	public static void main(String[] args){
+		
+		//Creates a new object called die that finds a random number between 1 and 6
+		RandomNumber die = new RandomNumber(6);
+		
+		//Creates a new Scanner
+		Scanner s = new Scanner(System.in);
+		
+		//Prompts the user to enter the number of trials
+		System.out.println("Please enter the amount of trials: ");
+		
+		//Sets the double trials to = the entered value
+		double trials = s.nextInt();
+		
+		//Prompts the user to input the value that they want
+		System.out.println("Please enter the expected value: ");
+		
+		//Sets the double exp to the entered value
+		double exp = s.nextInt();
+		
+		//Initializes the variables prob, success and probi
+		double prob = 0;
+		double success = 0;
+		double avgprob = 0;
+		double probi = 0;
+		
+		//Creates a loop that runs for the amount of trials the user inputted
+		for (int x=1; x <= trials; x++)
+		{
+			//Creates a loop that rolls the dice 80 times
+			for (int roll=1; roll<=80; roll++)
+			{
+				//Sets the integers y and z = to a random dice roll
+				int y = die.roll();
+				int z = die.roll();
+				
+				//Finds the sum of y and z
+				int sum = y + z;
+				
+				//Finds if the sum if the wanted/expected value
+				if (exp == sum)
+				{
+					//Adds one to the success variable
+					success++;
+				}		
+			}
+			
+			//Finds the probability for success from the 80 rolls
+			prob = success/80;
+			
+			//Finds the sum of individual probabilities
+			probi += prob;
+			
+			//Prints the probability of each individual trial
+			System.out.printf("\nThe probability of this trial is: %.2f" , prob);
+			
+			//Resets the success variable to 0 for a new trial
+			success = 0;
+		}	
+		//Shows the average probability from all individual probabilities
+		avgprob = probi/trials;
+		
+		//Prints out the average probability
+		System.out.printf("\n\nThe average probability is: %.2f" , avgprob);
+	}
+}
