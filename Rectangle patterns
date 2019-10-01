@@ -1,0 +1,122 @@
+import java.util.*;
+public class R728 {
+	public static void main(String[] args){
+		int r = 7;
+        		int c = 5;
+       		int[][] val = new int[r][c];
+        		for (int x = 0; x < r; x++)
+        		{
+           			for (int y = 0; y < c; y++)
+           			{			
+              		System.out.printf("%3d", val[x][y]);
+          			}
+           		System.out.println();
+        		}
+	}
+
+}
+
+public static void main(String[] args){
+        int r = 7;
+        int c = 5;
+        int[][] val = new int[r][c];
+        
+        for (int x = 0; x < r; x++)
+        {
+           for (int y = 0; y < c; y++)
+           {
+        	   if(y%2 == 0)
+        	   {
+        		   val[x][y] = 1;
+        	   }
+              System.out.printf("%3d", val[x][y]);
+           }
+           System.out.println();
+        }
+	}
+
+}
+
+public static void main(String[] args){
+        int r = 7;
+        int c = 5;
+        int[][] val = new int[r][c];
+        
+        for (int x = 0; x < r; x++)
+        {
+           for (int y = 0; y < c; y++)
+           {
+        	   if(x == 0 || x-(r-1)==0)
+        	   {
+        		   val[x][y] = 0;
+        	   }
+        	   else
+        	   {
+        		   val[x][y] = 1;
+        	   }
+              System.out.printf("%3d", val[x][y]);
+           }
+           System.out.println();
+        }
+	}
+
+}
+
+public static void main(String[] args){
+        int r = 7;
+        int c = 5;
+        int sum = 0;
+        int[][] val = new int[r][c];
+        
+        for (int x = 0; x < r; x++)
+        {
+           for (int y = 0; y < c; y++)
+           {
+        	   if(x == 0 || x-(r-1)==0)
+        	   {
+        		   val[x][y] = 0;
+        	   }
+        	   else
+        	   {
+        		   val[x][y] = 1;
+        		   sum += 1;
+        	   }
+              System.out.printf("%3d", val[x][y]);
+           }
+           System.out.println();
+        }
+        System.out.println("The sum is: " + sum);
+	}
+
+}
+
+public static void main(String[] args){
+        int r = 7;
+        int c = 5;
+        int sum = 0;
+        int t = 0;
+        int[][] val = new int[r][c];
+        
+        for (int x = 0; x < r; x++)
+        {
+            t++;
+        	System.out.println("Row " + t + “: ”);
+           for (int y = 0; y < c; y++)
+           {
+        	   if(x == 0 || x-(r-1)==0)
+        	   {
+        		   val[x][y] = 0;
+        	   }
+        	   else
+        	   {
+        		   val[x][y] = 1;
+        		   sum += 1;
+        	   }
+              System.out.printf("%3d", val[x][y]);
+           }
+        }
+        System.out.println();
+        System.out.println("The sum is: " + sum);
+	}
+
+}
