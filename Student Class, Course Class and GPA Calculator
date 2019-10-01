@@ -1,0 +1,300 @@
+import java.util.*;
+public class Student {
+
+	private String name;
+	private String IDNumber;
+	private String DOB;
+	private String Gender;
+	private String Address;
+	private String schoolname;
+	private int grade;
+	private List<Course> courses = new ArrayList<Course>();
+	private double GPA;
+	private String cname;
+	private double hours;
+	private String CID;
+	private double cgrade;
+	private String cinstructor;
+	private int room;
+
+	Student (String nm, String ID, String dob, String Gen, String Add, String school, int grd)
+	{
+		nm = name;
+		ID = IDNumber;
+		dob = DOB;
+		Gen = Gender;
+		Add = Address;
+		school = schoolname;
+		grd = grade;
+		Course("English 4", "ENG-4121", 95.4, "Ms. Musolf",  231, 4);
+		
+	}
+	
+	public void addCourse(Course crs)
+	{
+		courses.add(crs);
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+	
+	public String getIDNumber()
+	{
+		return IDNumber;
+	}
+	
+	public String getDOB()
+	{
+		return DOB;
+	}
+	
+	public String getGender()
+	{
+		return Gender;
+	}
+	
+	public String getAddress()
+	{
+		return Address;
+	}
+	
+	public String getSchoolname()
+	{
+		return schoolname;
+	}
+	
+	public int getGrade()
+	{
+		return grade;
+	}
+	
+	public String getCourseName()
+	{
+		return cname;
+	}
+	public String getCID()
+	{
+		return CID;
+	}
+	public double getCourseGrade()
+	{
+		return cgrade;
+	}
+	public double getCourseHours()
+	{
+		return hours;
+	}
+	public String getCourseInstructor()
+	{
+		return cinstructor;
+	}
+	public int getCourseRoom()
+	{
+		return room;
+	}
+	public List<Course> getSchedule()
+	{
+		return courses;
+	}
+	public Course getSpecificCourse(int a)
+	{
+		return courses.get(a);
+	}
+	public double getGPA()
+	{
+		return GPA;
+	}
+	public void setname(String name)
+	{
+		this.name = name;
+	}
+	public void setIDNumber(String IDNumber)
+	{
+		this.IDNumber = IDNumber;
+	}
+	public void setDOB(String DOB)
+	{
+		this.DOB = DOB;
+	}
+	public void setGender(String Gender)
+	{
+		this.Gender = Gender;
+	}	
+	public void setAddress(String Address)
+	{ 
+		this.Address = Address;
+	}
+	public void setschoolname(String schoolname)
+	{
+		this.schoolname = schoolname;
+	}
+	public void setGrade(int grade)
+	{
+		this.grade = grade;
+	}
+
+	public void setGPA(double GPA)
+	{
+		this.GPA = GPA;
+	}
+	
+	public void Course(String cname, String CID, double cgr, String cinst, int room, double hours)
+	{
+		cname = getCourseName();
+		CID = getCID();
+		cgr = getCourseGrade();
+		cinst = getCourseInstructor();
+		room = getCourseRoom();
+		hours = getCourseHours();
+	}
+		
+	public double findGPA()
+	{
+		double GPA;
+		double grade;
+		double hours;
+		double credit;
+		double grades;
+		
+		grades = 0;
+		credit = 0;
+		for(int x = 0; x<courses.size(); x++)
+		{
+			hours = courses.get(x).getCourseHours();
+			double temp = courses.get(x).getcgrade();
+			if (temp >= 89.5)
+			{
+				grade = 4;
+			}
+			else if (temp >= 79.5)
+			{
+				grade = 3;
+			}
+			else if (temp >= 69.5)
+			{
+				grade = 2;
+			}
+			else if (temp >= 59.5)
+			{
+				grade = 1;
+			}
+			else
+				grade = 0;
+			
+			credit = credit + hours;
+			grades = (grade * hours) + grades;
+			}
+		GPA = grades / credit;
+		return GPA;
+	}
+
+import java.util.*;
+public class Course {
+	private String cname;
+	private double hours;
+	private String CID;
+	private double cgrade;
+	private String cinstructor;
+	private int room;
+
+	
+	Course (String coursename, String cid, double cgr, String cinst, int rm, double hrs)
+	{
+		coursename = cname;
+		hours = hrs;
+		cid = CID;
+		cgrade = cgr;
+		cinst = cinstructor;
+		rm = room;
+	}
+	public String getCourseName()
+	{
+		return cname;
+	}
+	public double getCourseHours()
+	{
+		return hours;
+	}
+	public String getCID()
+	{
+		return CID;
+	}
+	public double getcgrade()
+	{
+		return cgrade;
+	}
+	public String getCourseInstructor()
+	{
+		return cinstructor;
+	}
+	public int getRoom()
+	{
+		return room;
+	}
+	public void setCourseName(String a)
+	{
+		this.cname = cname;
+	}
+	public void setCourseHours(double hours)
+	{
+		this.hours = hours;
+	}
+	public void setCourseID(String CID)
+	{
+		this.CID = CID;
+	}
+	public void setCourseGrade(double cgrade)
+	{
+		this.cgrade = cgrade;
+	}
+	public void setCourseInstructor(String cinstructor)
+	{
+		this.cinstructor = cinstructor;
+	}
+	public void setRoom(int room)
+	{
+		this.room = room;
+	}
+
+}
+
+public static void main(String args[])
+	{
+			
+			Student Jorge = new Student("Jorge", "123456789", "02-11-2000", "Sponge", "789 Roosevelt Drive", "Nequa Valley High School", 4);
+			
+			Jorge.setname("Henrique");
+			System.out.println("Jorge's name has been changed to: " + Jorge.getName());
+			
+			Jorge.setIDNumber("13579");
+			System.out.println("Jorge's IDNumber has been changed to: " + Jorge.getIDNumber());
+			
+			Jorge.setDOB("09-18-2000");
+			System.out.println("Jorge's Date of Birth has been changed to: " + Jorge.getDOB());
+			
+			Jorge.setGender("Starfish");
+			System.out.println("Jorge's Gender has been changed to: " + Jorge.getGender());
+			
+			Jorge.setAddress("142 1st Street");
+			System.out.println("Jorge's Address has been changed to: " + Jorge.getAddress());
+			
+			Jorge.setschoolname("Mercer University");
+			System.out.println("Jorge's School Name has been changed to: " + Jorge.getSchoolname());
+			
+			Jorge.setGrade(2);
+			System.out.println("Jorge's Grade has been changed to: " + Jorge.getGrade());
+			
+			Jorge.setGPA(-2.3);
+			System.out.println("Jorge's GPA has been changed to: " + Jorge.getGPA());
+						
+			Jorge.getSchedule().add(new Course("AP Physics C", "PHYS - 1365", 89.7, "Mrs. Piper", 133, 8.5));
+			Jorge.getSchedule().add(new Course("AP Calculus BC", "CALC - 2335", 91.3, "Mr. Steffes", 165, 5));
+			Jorge.getSchedule().add(new Course("Advanced Team Sports", "GYM - 432", 65.32, "Mrs. Fahrenbacher", 10, 4));
+			Jorge.getSchedule().add(new Course("Modern World Literature", "ENG - 4123", 72.87, "Ms. Musolf", 235, 4.5));
+			Jorge.getSchedule().add(new Course("AP Computer Science A", "COMP - 1792", 82.4, "Mr. Tu", 163, 5));
+			
+			System.out.printf("\n" + Jorge.getName() + "'s GPA is %.2f" , Jorge.findGPA());
+		}
+}
